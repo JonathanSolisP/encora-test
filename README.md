@@ -42,3 +42,12 @@ Backend service for a blog app developed using Express and postgres.
 - Nodemon
 - Dotenv
 - Firebase
+
+## Examples
+
+![image](https://github.com/JonathanSolisP/encora-test/assets/11906671/5657462f-8d54-46ec-a2ed-c710bec19c90)
+![image](https://github.com/JonathanSolisP/encora-test/assets/11906671/496ccb80-906f-4c05-8bd2-7c2c1d912488)
+![image](https://github.com/JonathanSolisP/encora-test/assets/11906671/adf02b06-2036-4af5-9bfd-3bc1f08d9eaf)
+![image](https://github.com/JonathanSolisP/encora-test/assets/11906671/124863f3-44f5-4614-8923-76936538afbd)
+![image](https://github.com/JonathanSolisP/encora-test/assets/11906671/2b9533af-afc4-4e55-ab07-b5875dc34cd6)
+
