@@ -1,4 +1,4 @@
-import {BlogsRepository} from './public/blog';
+import { BlogsRepository } from './public/blog';
 
 // Database Interface Extensions:
 interface IExtensions {

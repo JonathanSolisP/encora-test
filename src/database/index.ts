@@ -1,4 +1,4 @@
-import pgpromise, {IInitOptions, IMain, IDatabase} from 'pg-promise';
+import pgpromise, { IInitOptions, IMain, IDatabase } from 'pg-promise';
 import dotenv from "dotenv";
 
 dotenv.config();
