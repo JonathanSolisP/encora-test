@@ -1,1 +1,1 @@
-INSERT INTO public.blogs (title, content, photo) values (${title}, ${content}, ${photo});
+INSERT INTO public.blogs (title, content, photo) values (${title}, ${content}, ${photo}) RETURNING *;
