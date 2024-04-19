@@ -3,7 +3,6 @@ import {db} from './database';
 import dotenv from "dotenv";
 
 dotenv.config();
-const cors = require('cors');
 const pgp = require('pg-promise')(/* options */)
 
 const SERVER_PORT = parseInt(process.env.SERVER_PORT ?? '3000');
@@ -26,8 +25,9 @@ function GET(url: string, handler: (req: any) => any) {
     });
 }
 
+
 // list blogs:
-GET('/blogs', () => db());
+GET('/blogs', () => db.blogs.list());
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}`)
