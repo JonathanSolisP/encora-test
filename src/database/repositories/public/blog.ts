@@ -2,6 +2,7 @@ import {IDatabase, IMain} from 'pg-promise';
 import {IResult} from 'pg-promise/typescript/pg-subset';
 import {IBlog} from '../../models';
 import {blogs as sql} from '../../sql';
+import { UUID } from 'crypto';
 
 /*
  This repository mixes hard-coded and dynamic SQL, just to show how to use both.
@@ -32,25 +33,32 @@ export class BlogsRepository {
     // }
 
     // Tries to delete a product by id, and returns the number of records deleted;
-    remove(id: number): Promise<number> {
-        return this.db.result('DELETE FROM public.blogs WHERE id = $1', +id, (r: IResult) => r.rowCount);
-    }
+
 
     // Tries to find a user blog from user id + product name;
-    // find(values: { userId: number, name: string }): Promise<IBlog | null> {
-    //     return this.db.oneOrNone(sql.find, {
-    //         userId: +values.userId,
-    //         productName: values.name
-    //     });
-    // }
+    find(values: { userId: number, name: string }): Promise<IBlog | null> {
+        return this.db.oneOrNone(sql.find, {
+            userId: +values.userId,
+            productName: values.name
+        });
+    }
 
     // Returns all blog records;
     list(): Promise<IBlog[]> {
         return this.db.any(sql.list);
     }
 
+    // gets blog by id
+    get(id: UUID): Promise<IBlog | null> {
+        return this.db.oneOrNone(sql.get, id);
+    }
+
+    delete(id: number): Promise<number> {
+        return this.db.result(sql.delete, id, (r: IResult) => r.rowCount);
+    }
+
     // Returns the total number of blogs;
-    // total(): Promise<number> {
-    //     return this.db.one('SELECT count(*) FROM public.blogs', [], (data: { count: string }) => +data.count);
-    // }
+    total(): Promise<number> {
+        return this.db.one('SELECT count(*) FROM public.blogs', [], (data: { count: string }) => +data.count);
+    }
 }

@@ -25,9 +25,31 @@ function GET(url: string, handler: (req: any) => any) {
     });
 }
 
+function DELETE(url: string, handler: (req: any) => any) {
+    app.delete(url, async (req, res) => {
+        try {
+            const data = await handler(req);
+            res.json({
+                success: true,
+                data
+            });
+        } catch (error: any) {
+            res.json({
+                success: false,
+                error: error.message || error
+            });
+        }
+    });
+}
 
 // list blogs:
 GET('/blogs', () => db.blogs.list());
+
+// get a blog by ID
+GET('/blogs/:id', req => db.blogs.get(req.params));
+
+// delete a blog by ID
+DELETE('/blogs/:id', req => db.blogs.delete(req.params));
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}`)

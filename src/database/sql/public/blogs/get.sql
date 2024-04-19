@@ -4,3 +4,4 @@ SELECT
     content,
     photo
   FROM public.blogs
+ WHERE id = ${id}
