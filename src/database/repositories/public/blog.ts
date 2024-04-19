@@ -23,26 +23,6 @@ export class BlogsRepository {
      */
     constructor(private db: IDatabase<any>, private pgp: IMain) {}
 
-    // Adds a new record and returns the full object;
-    // It is also an example of mapping HTTP requests into query parameters;
-    // add(values: { userId: number, name: string }): Promise<IBlog> {
-    //     return this.db.one(sql.add, {
-    //         userId: +values.userId,
-    //         productName: values.name
-    //     });
-    // }
-
-    // Tries to delete a product by id, and returns the number of records deleted;
-
-
-    // Tries to find a user blog from user id + product name;
-    find(values: { userId: number, name: string }): Promise<IBlog | null> {
-        return this.db.oneOrNone(sql.find, {
-            userId: +values.userId,
-            productName: values.name
-        });
-    }
-
     // Returns all blog records;
     list(): Promise<IBlog[]> {
         return this.db.any(sql.list);
@@ -57,8 +37,8 @@ export class BlogsRepository {
         return this.db.result(sql.delete, id, (r: IResult) => r.rowCount);
     }
 
-    // Returns the total number of blogs;
-    total(): Promise<number> {
-        return this.db.one('SELECT count(*) FROM public.blogs', [], (data: { count: string }) => +data.count);
+    create(newBlog: IBlog): Promise<IBlog | null> {
+        console.log(newBlog.title);
+        return this.db.one(sql.create, newBlog);
     }
 }

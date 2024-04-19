@@ -2,8 +2,7 @@ import {QueryFile, IQueryFileOptions} from 'pg-promise';
 import {join} from 'path';
 
 export const blogs = {
-    find: sql('public/blogs/find.sql'),
-    // add: sql('public/blogs/add.sql'),
+    create: sql('public/blogs/create.sql'),
     list: sql('public/blogs/list.sql'),
     get: sql('public/blogs/get.sql'),
     delete: sql('public/blogs/delete.sql'),
