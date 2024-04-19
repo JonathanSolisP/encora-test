@@ -1,5 +1,5 @@
-import {QueryFile, IQueryFileOptions} from 'pg-promise';
-import {join} from 'path';
+import { QueryFile, IQueryFileOptions } from 'pg-promise';
+import { join } from 'path';
 
 export const blogs = {
     create: sql('public/blogs/create.sql'),

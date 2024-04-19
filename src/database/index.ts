@@ -1,10 +1,10 @@
-import pgpromise, {IInitOptions, IMain, IDatabase} from 'pg-promise';
+import pgpromise, { IInitOptions, IMain, IDatabase } from 'pg-promise';
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const {DB_URL} = process.env;
-import {IExtensions, BlogsRepository} from './repositories';
+const { DB_URL } = process.env;
+import { IExtensions, BlogsRepository } from './repositories';
 
 type ExtendedProtocol = IDatabase<IExtensions> & IExtensions;
 
