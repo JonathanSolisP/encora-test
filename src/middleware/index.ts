@@ -1,5 +1,7 @@
 import express, { Express } from 'express';
 import bodyParser from 'body-parser';
+var multer = require('multer');
+var forms = multer();
 
 // TODO: Add logging
 export function loadMiddlewares(app: Express) {
