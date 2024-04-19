@@ -17,7 +17,7 @@ export function GET(router: Router, url: string, handler: (req: any) => any) {
     });
 }
 
-export function CREATE(router: Router, url: string, handler: (req: any) => any) {
+export function POST(router: Router, url: string, handler: (req: any) => any) {
     router.post(url, async (req, res) => {
         try {
             const data = await handler(req);
